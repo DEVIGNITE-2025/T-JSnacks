@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TJ Snacks CMS | Product Management</title>
+  <meta
+    name="description"
+    content="TJ Snacks owner CMS for managing products, sale items and stock visibility."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="site-shell">
+    <header class="header" id="top">
+      <div class="container nav">
+        <a href="index.html#top" class="logo">
+          <span class="logo-mark">TJ</span>
+          <span class="logo-text">
+            <strong>TJ Snacks</strong>
+            <small>Owner Product CMS</small>
+          </span>
+        </a>
+
+        <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false" aria-controls="navLinks">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <nav class="nav-links" id="navLinks">
+          <a href="index.html#about">About</a>
+          <a href="index.html#products">Products</a>
+          <a href="index.html#contact">Contact</a>
+          <a href="index.html" class="btn btn-secondary btn-sm">Back to Site</a>
+          <button type="button" class="btn btn-sm hidden" id="logoutButton">Logout</button>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="section cms-page-section">
+        <div class="container">
+          <div class="section-head reveal">
+            <span class="eyebrow">Secure Access</span>
+            <h2>Product management and stock control</h2>
+            <p>
+              Authorised staff can log in below to manage products, sale items and stock visibility for the TJ Snacks catalog.
+            </p>
+          </div>
+
+          <div class="auth-shell reveal" id="authGate">
+            <div class="auth-card">
+              <h3>Owner Login</h3>
+              <p>Enter your authorised credentials to access the CMS dashboard.</p>
+              <form id="loginForm" class="cms-form auth-form">
+                <div class="form-row">
+                  <label for="loginUsername">Username</label>
+                  <input type="text" id="loginUsername" name="loginUsername" placeholder="Enter username" required />
+                </div>
+                <div class="form-row">
+                  <label for="loginPassword">Password</label>
+                  <input type="password" id="loginPassword" name="loginPassword" placeholder="Enter password" required />
+                </div>
+                <button type="submit" class="btn full-width">Login to CMS</button>
+                <p class="form-note" id="loginMessage"></p>
+              </form>
+            </div>
+          </div>
+
+          <div class="cms-dashboard hidden" id="cmsApp">
+            <div class="page-toolbar reveal">
+              <div>
+                <span class="eyebrow">CMS Dashboard</span>
+                <h2>Manage the live product catalog</h2>
+                <p>Add, remove, mark products as on sale, and switch items to out of stock.</p>
+              </div>
+            </div>
+
+            <div class="products-layout cms-products-layout">
+              <div class="catalog-column">
+                <div class="cms-card cms-preview-card reveal">
+                  <div class="cms-head compact">
+                    <h3>Live catalog preview</h3>
+                    <p>This is how products will appear on the public website.</p>
+                  </div>
+                  <div class="products-grid" id="cmsProductsGrid"></div>
+                </div>
+              </div>
+
+              <aside class="cms-panel reveal" aria-labelledby="cmsTitle">
+                <div class="cms-card">
+                  <div class="cms-head">
+                    <span class="eyebrow">Owner CMS</span>
+                    <h3 id="cmsTitle">Add a new product</h3>
+                    <p>Use this form to add new product cards to the website catalog.</p>
+                  </div>
+
+                  <form id="productForm" class="cms-form">
+                    <div class="cms-form-grid">
+                      <div class="form-row">
+                        <label for="productName">Product Name</label>
+                        <input type="text" id="productName" name="productName" placeholder="e.g. Cheese Crunch" required />
+                      </div>
+
+                      <div class="form-row">
+                        <label for="productIcon">Icon Letter</label>
+                        <input type="text" id="productIcon" name="productIcon" placeholder="e.g. C" maxlength="2" required />
+                      </div>
+                    </div>
+
+                    <div class="form-row">
+                      <label for="productDescription">Description</label>
+                      <textarea id="productDescription" name="productDescription" rows="4" placeholder="Short product description" required></textarea>
+                    </div>
+
+                    <div class="cms-form-grid">
+                      <div class="form-row">
+                        <label for="productSizes">Pack Sizes</label>
+                        <input type="text" id="productSizes" name="productSizes" placeholder="50 × 24g, 12 × 100g" required />
+                      </div>
+
+                      <div class="form-row">
+                        <label for="productTags">Tags / Flavours</label>
+                        <input type="text" id="productTags" name="productTags" placeholder="Cheese, Crunchy, Family Pack" required />
+                      </div>
+                    </div>
+
+                    <div class="cms-form-grid">
+                      <div class="form-row">
+                        <label for="productTheme">Card Theme</label>
+                        <select id="productTheme" name="productTheme">
+                          <option value="vibrant-1">Blue Glow</option>
+                          <option value="vibrant-2">Royal Blue</option>
+                          <option value="vibrant-3">Electric Blue</option>
+                          <option value="vibrant-4">Deep Ocean</option>
+                          <option value="vibrant-5">Gold Premium</option>
+                          <option value="vibrant-6">Gold Bright</option>
+                          <option value="vibrant-7">Midnight Gold</option>
+                        </select>
+                      </div>
+
+                      <div class="form-row checkbox-group">
+                        <label><input type="checkbox" id="productNew" name="productNew" /> Mark as new product</label>
+                        <label><input type="checkbox" id="productSale" name="productSale" /> Put on sale</label>
+                        <label><input type="checkbox" id="productOutOfStock" name="productOutOfStock" /> Mark out of stock</label>
+                      </div>
+                    </div>
+
+                    <div class="cms-actions">
+                      <button type="submit" class="btn">Add Product</button>
+                      <button type="button" class="btn btn-secondary" id="resetProducts">Reset Demo Products</button>
+                    </div>
+                    <p class="form-note" id="productFormMessage"></p>
+                  </form>
+                </div>
+
+                <div class="cms-card cms-list-card">
+                  <div class="cms-head compact">
+                    <h3>Current products</h3>
+                    <p>Use the quick actions below to manage stock and sale status.</p>
+                  </div>
+                  <div class="cms-product-list" id="cmsProductList"></div>
+                </div>
+              </aside>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="product-store.js"></script>
+  <script src="cms.js"></script>
+</body>
+</html>
