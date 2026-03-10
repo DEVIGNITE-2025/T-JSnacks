@@ -3,7 +3,14 @@ const navLinks = document.getElementById("navLinks");
 const contactForm = document.getElementById("contactForm");
 const formMessage = document.getElementById("formMessage");
 const productsGrid = document.getElementById("productsGrid");
+const scrollTopButton = document.getElementById("scrollTopButton");
 
+/* Seamless ticker: clone the inner strip so the animation loops without gaps */
+const brandsTrack = document.querySelector(".brands-track");
+const brandsOriginal = document.querySelector(".brands-inner");
+if (brandsTrack && brandsOriginal) {
+  brandsTrack.appendChild(brandsOriginal.cloneNode(true));
+}
 
 let revealObserver;
 const products = window.TJStore ? window.TJStore.loadProducts() : [];
@@ -18,18 +25,35 @@ function escapeHtml(value) {
 }
 
 function observeReveals(scope = document) {
-  const elements = scope.querySelectorAll(".reveal");
+  const elements = scope.querySelectorAll(".reveal, .reveal-left");
 
   if (!elements.length) {
     return;
   }
 
-  if (revealObserver) {
-    elements.forEach((element) => revealObserver.observe(element));
-    return;
+  if (!revealObserver) {
+    revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12 }
+    );
   }
 
-  elements.forEach((element) => element.classList.add("show"));
+  /* Assign stagger delays to grid / list children */
+  scope.querySelectorAll(".products-grid, .features-grid, .hero-stats, .contact-list").forEach((grid) => {
+    const kids = grid.querySelectorAll(".reveal, .reveal-left");
+    kids.forEach((kid, i) => {
+      kid.classList.add("delay-" + Math.min(i + 1, 7));
+    });
+  });
+
+  elements.forEach((el) => revealObserver.observe(el));
 }
 
 function renderProducts() {
@@ -73,6 +97,24 @@ function renderProducts() {
 
 if (window.location.pathname.endsWith("/admin") || window.location.hash === "#admin") {
   window.location.href = "cms.html";
+}
+
+if (scrollTopButton) {
+  const syncScrollTopButton = () => {
+    if (window.scrollY > 260) {
+      scrollTopButton.classList.add("show");
+      return;
+    }
+
+    scrollTopButton.classList.remove("show");
+  };
+
+  scrollTopButton.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
+  window.addEventListener("scroll", syncScrollTopButton, { passive: true });
+  syncScrollTopButton();
 }
 
 if (menuToggle && navLinks) {

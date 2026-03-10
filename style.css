@@ -167,6 +167,27 @@ a {
   background: var(--gold-rich);
 }
 
+/* ── Particle canvas ── */
+.hero,
+.section.alt {
+  position: relative;
+}
+
+.particle-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero > .container,
+.section.alt > .container {
+  position: relative;
+  z-index: 1;
+}
+
 .hero {
   padding: 8rem 0 6rem;
 }
@@ -409,17 +430,34 @@ a {
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
   background: linear-gradient(90deg, rgba(8, 39, 92, 0.9), rgba(15, 61, 145, 0.84), rgba(8, 39, 92, 0.9));
+  overflow: hidden;
+}
+
+.brands-track {
+  display: flex;
+  width: max-content;
+  animation: ticker 18s linear infinite;
 }
 
 .brands-inner {
   display: flex;
   align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 1rem 2.4rem;
+  gap: 2.4rem;
+  padding: 0 1.2rem;
+  white-space: nowrap;
   color: #d9e8ff;
   font-weight: 700;
   letter-spacing: 0.03em;
+  flex-shrink: 0;
+}
+
+.brands-inner span {
+  flex-shrink: 0;
+}
+
+@keyframes ticker {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 .section {
@@ -955,34 +993,371 @@ a {
 
 .footer {
   border-top: 1px solid var(--line);
-  padding: 2rem 0;
+  padding: 4rem 0 2rem;
   background: linear-gradient(180deg, rgba(4, 20, 50, 0.6), rgba(3, 20, 50, 0.95));
 }
 
-.footer-inner {
+.footer-main {
+  display: grid;
+  grid-template-columns: 1.2fr 0.85fr 0.85fr 1fr;
+  gap: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(148, 187, 255, 0.2);
+}
+
+.footer-logo {
+  margin-bottom: 1.2rem;
+}
+
+.footer-brand p {
+  margin: 0;
+  max-width: 38ch;
+  color: #b8ccee;
+  line-height: 1.7;
+}
+
+.footer-column {
+  display: grid;
+  align-content: start;
+  gap: 0.7rem;
+}
+
+.footer-column h3 {
+  margin: 0 0 0.55rem;
+  color: #fff2c2;
+  font-size: 1.45rem;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.footer-column a,
+.footer-column p {
+  margin: 0;
+  color: #d8e6ff;
+  font-size: 1.02rem;
+  line-height: 1.7;
+}
+
+.footer-column a {
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.footer-column a:hover {
+  color: var(--gold-rich);
+  transform: translateX(4px);
+}
+
+.footer-column p strong {
+  color: #ffe6a2;
+}
+
+.footer-bottom {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
+  padding-top: 1.5rem;
 }
 
-.footer strong {
-  color: #fff4c7;
+.footer-bottom p {
+  margin: 0;
+  color: #c5d8fb;
 }
 
-.footer p {
-  margin: 0.4rem 0 0;
-  color: #b8ccee;
+.scroll-top-btn {
+  position: fixed;
+  right: 1.8rem;
+  bottom: 1.8rem;
+  width: 58px;
+  height: 58px;
+  border: 0;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 1.7rem;
+  line-height: 1;
+  cursor: pointer;
+  color: #08275c;
+  background: linear-gradient(135deg, var(--gold-rich), var(--gold));
+  box-shadow: 0 14px 34px rgba(244, 197, 66, 0.36);
+  opacity: 0;
+  transform: translateY(12px) scale(0.9);
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease, filter 0.25s ease;
+  z-index: 1200;
 }
 
-.back-to-top {
-  color: var(--gold-rich);
-  font-weight: 700;
+.scroll-top-btn.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
 }
 
-.back-to-top:hover {
-  text-decoration: underline;
-  text-underline-offset: 4px;
+.scroll-top-btn:hover {
+  filter: brightness(1.08);
+  transform: translateY(-3px) scale(1.03);
+}
+
+.scroll-top-btn:focus-visible {
+  outline: 3px solid rgba(244, 197, 66, 0.55);
+  outline-offset: 3px;
+}
+
+/* ── Gold text shimmer ── */
+.gold-text {
+  background: linear-gradient(
+    90deg,
+    var(--gold) 0%,
+    #fff8dc 38%,
+    var(--gold-rich) 60%,
+    #fff8dc 78%,
+    var(--gold) 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 4s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0%   { background-position: 100% 50%; }
+  100% { background-position: -100% 50%; }
+}
+
+/* ── Logo glow pulse ── */
+.logo-mark {
+  animation: logoPulse 3s ease-in-out infinite;
+}
+
+@keyframes logoPulse {
+  0%, 100% { box-shadow: 0 14px 30px rgba(244, 197, 66, 0.28); }
+  50%      { box-shadow: 0 14px 40px rgba(244, 197, 66, 0.55), 0 0 20px rgba(244, 197, 66, 0.2); }
+}
+
+/* ── Eyebrow badge glow ── */
+.eyebrow {
+  animation: eyebrowGlow 3s ease-in-out infinite;
+}
+
+@keyframes eyebrowGlow {
+  0%, 100% { box-shadow: 0 0 0 rgba(244, 197, 66, 0); }
+  50%      { box-shadow: 0 0 18px rgba(244, 197, 66, 0.2); }
+}
+
+/* ── Button glow on hover ── */
+.btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(244, 197, 66, 0.5), transparent, rgba(244, 197, 66, 0.5));
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -1;
+}
+
+.btn:hover::before {
+  opacity: 1;
+  animation: btnGlow 1.5s ease-in-out infinite;
+}
+
+@keyframes btnGlow {
+  0%, 100% { opacity: 0.5; }
+  50%      { opacity: 1; }
+}
+
+/* ── Card shine sweep on hover ── */
+.product-card,
+.feature-card,
+.panel-card,
+.stat-card,
+.contact-item,
+.contact-form-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.product-card::before,
+.feature-card::before,
+.panel-card::before,
+.stat-card::before,
+.contact-item::before,
+.contact-form-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    105deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.06) 40%,
+    rgba(255, 255, 255, 0.12) 50%,
+    rgba(255, 255, 255, 0.06) 60%,
+    transparent 80%
+  );
+  transform: skewX(-20deg);
+  transition: none;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.product-card:hover::before,
+.feature-card:hover::before,
+.panel-card:hover::before,
+.stat-card:hover::before,
+.contact-item:hover::before,
+.contact-form-card:hover::before {
+  animation: cardShine 0.7s ease forwards;
+}
+
+@keyframes cardShine {
+  0%   { left: -75%; }
+  100% { left: 125%; }
+}
+
+/* ── Enhanced floating cards with different patterns ── */
+.floating-card.one   { animation: floatDrift1 5.5s ease-in-out infinite; }
+.floating-card.two   { animation: floatDrift2 6s ease-in-out infinite 0.4s; }
+.floating-card.three { animation: floatDrift3 5s ease-in-out infinite 0.9s; }
+.floating-card.four  { animation: floatDrift4 6.5s ease-in-out infinite 1.4s; }
+
+@keyframes floatDrift1 {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  25%      { transform: translate(6px, -10px) rotate(1deg); }
+  50%      { transform: translate(-4px, -16px) rotate(-1deg); }
+  75%      { transform: translate(4px, -6px) rotate(0.5deg); }
+}
+
+@keyframes floatDrift2 {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  33%      { transform: translate(8px, -14px) rotate(-1.5deg); }
+  66%      { transform: translate(-6px, -8px) rotate(1deg); }
+}
+
+@keyframes floatDrift3 {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  25%      { transform: translate(-8px, -6px) rotate(1deg); }
+  50%      { transform: translate(4px, -18px) rotate(-1deg); }
+  75%      { transform: translate(-4px, -10px) rotate(0.5deg); }
+}
+
+@keyframes floatDrift4 {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  40%      { transform: translate(6px, -12px) rotate(-1deg); }
+  60%      { transform: translate(-6px, -16px) rotate(1.5deg); }
+}
+
+/* ── Marquee (handled by .brands-track above) ── */
+
+/* ── Staggered reveal delays ── */
+.reveal.delay-1 { transition-delay: 0.1s; }
+.reveal.delay-2 { transition-delay: 0.2s; }
+.reveal.delay-3 { transition-delay: 0.3s; }
+.reveal.delay-4 { transition-delay: 0.4s; }
+.reveal.delay-5 { transition-delay: 0.5s; }
+.reveal.delay-6 { transition-delay: 0.6s; }
+.reveal.delay-7 { transition-delay: 0.7s; }
+
+/* ── Hero card main animated border ── */
+.hero-card-main {
+  overflow: hidden;
+}
+
+.hero-card-main::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0%,
+    rgba(244, 197, 66, 0.15) 10%,
+    transparent 20%,
+    transparent 50%,
+    rgba(37, 99, 235, 0.1) 60%,
+    transparent 70%
+  );
+  animation: rotateBorder 8s linear infinite;
+  z-index: -1;
+}
+
+@keyframes rotateBorder {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ── Product icon bounce on card hover ── */
+.product-card:hover .product-icon {
+  animation: iconBounce 0.5s ease;
+}
+
+@keyframes iconBounce {
+  0%   { transform: scale(1); }
+  40%  { transform: scale(1.18); }
+  70%  { transform: scale(0.95); }
+  100% { transform: scale(1); }
+}
+
+/* ── Smooth scale-in for tags ── */
+.tag-wrap span {
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.tag-wrap span:hover {
+  transform: scale(1.08);
+  background: rgba(244, 197, 66, 0.26);
+}
+
+/* ── Contact item slide-in-left variant ── */
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal-left.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ── Section separator glow line ── */
+.section::after {
+  content: "";
+  display: block;
+  width: 120px;
+  height: 2px;
+  margin: 4rem auto 0;
+  background: linear-gradient(90deg, transparent, var(--gold-rich), transparent);
+  border-radius: 999px;
+  animation: lineGlow 3s ease-in-out infinite;
+}
+
+.section:last-of-type::after,
+.cta-section::after {
+  display: none;
+}
+
+@keyframes lineGlow {
+  0%, 100% { opacity: 0.4; width: 120px; }
+  50%      { opacity: 1;   width: 180px; }
+}
+
+/* ── Respect prefers-reduced-motion ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 .reveal {
@@ -1129,8 +1504,26 @@ a {
     left: 14px;
   }
 
-  .footer-inner {
+  .footer-main {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .footer-bottom {
     flex-direction: column;
     align-items: flex-start;
+  }
+}
+
+@media (max-width: 640px) {
+  .footer-main {
+    grid-template-columns: 1fr;
+  }
+
+  .scroll-top-btn {
+    right: 1rem;
+    bottom: 1rem;
+    width: 52px;
+    height: 52px;
+    font-size: 1.5rem;
   }
 }
