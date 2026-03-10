@@ -5,7 +5,7 @@
   const MAX_PARTICLES = 120;
   const DOT_RADIUS = 2;
   const SPEED = 0.35;
-  const COLOR = "196, 222, 255";
+  const COLOR = "200, 170, 60";
   const LINE_ALPHA = 0.18;
   const DOT_ALPHA = 0.45;
 

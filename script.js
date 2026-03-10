@@ -77,10 +77,14 @@ function renderProducts() {
 
       const sizes = product.sizes.map((size) => `<li>${escapeHtml(size)}</li>`).join("");
       const tags = product.tags.map((tag) => `<span>${escapeHtml(tag)}</span>`).join("");
+      const hasImage = typeof product.image === "string" && product.image.trim().length > 0;
+      const imageMarkup = hasImage
+        ? `<img src="${escapeHtml(product.image)}" alt="${escapeHtml(product.name)}" loading="lazy" />`
+        : '<span class="product-image-placeholder">Product Image</span>';
 
       return `
         <article class="product-card ${escapeHtml(product.theme)} ${product.outOfStock ? "is-out-of-stock" : ""} reveal show">
-          <div class="product-icon">${escapeHtml(product.icon.slice(0, 2).toUpperCase())}</div>
+          <div class="product-image-slot">${imageMarkup}</div>
           ${product.isNew ? '<span class="new-product-badge">New Product</span>' : ""}
           ${statusBadges ? `<div class="product-statuses">${statusBadges}</div>` : ""}
           <h3>${escapeHtml(product.name)}</h3>

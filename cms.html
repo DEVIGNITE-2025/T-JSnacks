@@ -145,6 +145,13 @@
                       </select>
                     </div>
 
+                    <div class="form-row">
+                      <label for="productImage">Product Image</label>
+                      <input type="file" id="productImage" name="productImage" accept="image/*" />
+                      <small class="field-hint">Upload JPG, PNG, WEBP or GIF. Recommended: landscape image.</small>
+                      <div class="cms-image-preview" id="cmsImagePreview">No image selected.</div>
+                    </div>
+
                     <div class="checkbox-group">
                       <label><input type="checkbox" id="productNew" name="productNew" /> Mark as new product</label>
                       <label><input type="checkbox" id="productSale" name="productSale" /> Put on sale</label>
@@ -152,7 +159,8 @@
                     </div>
 
                     <div class="cms-actions">
-                      <button type="submit" class="btn">Add Product</button>
+                      <button type="submit" class="btn" id="saveProductButton">Add Product</button>
+                      <button type="button" class="btn btn-secondary hidden" id="cancelEditButton">Cancel Edit</button>
                       <button type="button" class="btn btn-secondary" id="resetProducts">Reset Demo Products</button>
                     </div>
                     <p class="form-note" id="productFormMessage"></p>
