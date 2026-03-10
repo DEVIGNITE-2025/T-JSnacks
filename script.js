@@ -3,7 +3,7 @@ const navLinks = document.getElementById("navLinks");
 const contactForm = document.getElementById("contactForm");
 const formMessage = document.getElementById("formMessage");
 const productsGrid = document.getElementById("productsGrid");
-const cmsLoginButton = document.getElementById("cmsLoginButton");
+
 
 let revealObserver;
 const products = window.TJStore ? window.TJStore.loadProducts() : [];
@@ -71,8 +71,8 @@ function renderProducts() {
   observeReveals(productsGrid);
 }
 
-if (cmsLoginButton && window.TJStore) {
-  cmsLoginButton.textContent = window.TJStore.isAuthenticated() ? "Open CMS" : "Login";
+if (window.location.pathname.endsWith("/admin") || window.location.hash === "#admin") {
+  window.location.href = "cms.html";
 }
 
 if (menuToggle && navLinks) {
