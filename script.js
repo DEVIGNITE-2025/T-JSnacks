@@ -150,6 +150,13 @@ if (menuToggle && navLinks) {
       closeMenu();
     }
   });
+
+  /* Close mobile menu when viewport grows past the mobile breakpoint */
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 860) {
+      closeMenu();
+    }
+  }, { passive: true });
 }
 
 if (contactForm && formMessage) {
