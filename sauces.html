@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Browse the Golden Sauces range of tomato, mustard, BBQ, chilli, sweet chilli, chip dip, fruit chutney and peri peri sauces.">
+    <title>Golden Sauces | Sauce Range</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="sauces-page" data-page="sauces">
+    <div class="site-shell golden-page sauces-page-shell">
+        <header class="header golden-header">
+            <div class="container nav-wrap">
+                <a class="brand" href="sauces.html" aria-label="Golden Sauces home">
+                    <span class="brand-mark golden-brand-mark">
+                        <img class="golden-brand-logo" src="Images/golden sauce logo.png" alt="Golden Sauces logo">
+                    </span>
+                    <span class="brand-text">
+                        <strong>Golden Sauces</strong>
+                        <small>A Sauce For Everyone</small>
+                    </span>
+                </a>
+
+                <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <nav class="nav" id="site-menu" aria-label="Primary navigation">
+                    <a href="index.html#top" data-page-link="home">Home</a>
+                    <a href="index.html#about">About</a>
+                    <a href="index.html#factory-store">Factory Store</a>
+                    <div class="nav-group">
+                        <button class="nav-parent" type="button" aria-expanded="false">Products</button>
+                        <div class="nav-submenu" aria-label="Products submenu">
+                            <a href="snacks.html" data-page-link="snacks">Snacks</a>
+                            <a href="sauces.html" data-page-link="sauces">Sauces</a>
+                        </div>
+                    </div>
+                    <a class="nav-contact" href="index.html#contact">Contact</a>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <section class="golden-hero section">
+                <div class="golden-hero-backdrop" style="background-image: linear-gradient(90deg, rgba(9, 36, 18, 0.84), rgba(9, 36, 18, 0.54)), url('Images/sauce3.png');"></div>
+                <div class="container golden-hero-content reveal is-visible">
+                    <p class="eyebrow eyebrow-on-dark">Golden Sauces</p>
+                    <h1>Golden Sauces</h1>
+                    <p class="golden-hero-text">A sauce for everyone — bold flavours for homes, kitchens, restaurants and bulk customers.</p>
+                    <div class="hero-actions">
+                        <a class="button button-golden" href="#sauce-range">View Sauce Range</a>
+                        <a class="button button-golden-outline" href="#sauce-enquiry">Contact Us for Pricing</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section golden-intro-section">
+                <div class="container golden-intro-layout">
+                    <div class="section-copy reveal">
+                        <p class="eyebrow golden-eyebrow">Brand Introduction</p>
+                        <h2>Flavourful sauces prepared for everyday meals, catering and bulk supply.</h2>
+                        <p>Golden Sauces offers a wide range of flavourful sauces made for everyday use, catering, food service and bulk supply. From classic tomato and mustard to chilli, BBQ, fruit chutney and peri peri, the range is designed to deliver consistent taste and reliable quality.</p>
+                        <ul class="golden-highlights" aria-label="Golden Sauces highlights">
+                            <li>Wide sauce range</li>
+                            <li>Bulk supply options</li>
+                            <li>Made for everyday meals</li>
+                            <li>Suitable for food service and resale</li>
+                        </ul>
+                    </div>
+                    <div class="reveal reveal-delay">
+                        <div class="image-panel image-panel-photo golden-intro-media">
+                            <img class="panel-image golden-panel-image" src="Images/sauce2.png" alt="Golden Sauces product range">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section section-muted golden-range-section" id="sauce-range">
+                <div class="container">
+                    <div class="section-heading reveal">
+                        <p class="eyebrow golden-eyebrow">Sauce Range</p>
+                        <h2>Modern sauce catalogue built for quick browsing and clear product understanding.</h2>
+                        <p class="product-section-lead">Each sauce below is presented in a consistent 5L format and designed to make wholesale and bulk enquiries easier for customers.</p>
+                    </div>
+
+                    <div class="golden-grid">
+                        <article class="golden-card reveal">
+                            <div class="golden-card-media">
+                                <img class="golden-card-image" src="Images/tomato sauce.png" alt="Golden Sauces Tomato Sauce">
+                                <ul class="golden-card-ingredients" aria-label="Tomato Sauce ingredient notes">
+                                    <li>Tomatoes</li>
+                                    <li>Vinegar</li>
+                                    <li>Herbs</li>
+                                </ul>
+                            </div>
+                            <div class="golden-card-copy">
+                                <div class="golden-card-header">
+                                    <span class="golden-card-kicker">Golden Sauces</span>
+                                    <h3>Tomato Sauce</h3>
+                                </div>
+                                <p>A classic tomato sauce ideal for meals, takeaways, kitchens and everyday use.</p>
+                                <div class="golden-card-footer">
+                                    <span class="golden-size-pill">Size: 5L</span>
+                                    <a class="button button-golden golden-card-button" href="#sauce-enquiry" data-product-target="Tomato Sauce">Enquire About This Sauce</a>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="golden-card reveal">
+                            <div class="golden-card-media">
+                                <img class="golden-card-image" src="Images/mustard.png" alt="Golden Sauces Mustard Sauce">
+                                <ul class="golden-card-ingredients" aria-label="Mustard Sauce ingredient notes">
+                                    <li>Mustard</li>
+                                    <li>Vinegar</li>
+                                    <li>Spices</li>
+                                </ul>
+                            </div>
+                            <div class="golden-card-copy">
+                                <div class="golden-card-header">
+                                    <span class="golden-card-kicker">Golden Sauces</span>
+                                    <h3>Mustard Sauce</h3>
+                                </div>
+                                <p>A smooth mustard sauce suited for hot dogs, burgers, catering and food service.</p>
+                                <div class="golden-card-footer">
+                                    <span class="golden-size-pill">Size: 5L</span>
+                                    <a class="button button-golden golden-card-button" href="#sauce-enquiry" data-product-target="Mustard Sauce">Enquire About This Sauce</a>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="golden-card reveal">
+                            <div class="golden-card-media">
+                                <img class="golden-card-image" src="Images/bbq.png" alt="Golden Sauces BBQ Sauce">
+                                <ul class="golden-card-ingredients" aria-label="BBQ Sauce ingredient notes">
+                                    <li>Smoky spice</li>
+                                    <li>Tomato base</li>
+                                    <li>Garlic</li>
+                                </ul>
+                            </div>
+                            <div class="golden-card-copy">
+                                <div class="golden-card-header">
+                                    <span class="golden-card-kicker">Golden Sauces</span>
+                                    <h3>BBQ Sauce</h3>
+                                </div>
+                                <p>A bold BBQ sauce with a rich flavour profile, ideal for grilled meals and marinades.</p>
+                                <div class="golden-card-footer">
+                                    <span class="golden-size-pill">Size: 5L</span>
+                                    <a class="button button-golden golden-card-button" href="#sauce-enquiry" data-product-target="BBQ Sauce">Enquire About This Sauce</a>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="golden-card reveal">
+                            <div class="golden-card-media">
+                                <img class="golden-card-image" src="Images/chilli sauce.png" alt="Golden Sauces Chilli Sauce">
+                                <ul class="golden-card-ingredients" aria-label="Chilli Sauce ingredient notes">
+                                    <li>Chillies</li>
+                                    <li>Garlic</li>
+                                    <li>Vinegar</li>
+                                </ul>
+                            </div>
+                            <div class="golden-card-copy">
+                                <div class="golden-card-header">
+                                    <span class="golden-card-kicker">Golden Sauces</span>
+                                    <h3>Chilli Sauce</h3>
+                                </div>
+                                <p>A spicy chilli sauce made for customers who enjoy a stronger flavour kick.</p>
+                                <div class="golden-card-footer">
+                                    <span class="golden-size-pill">Size: 5L</span>
+                                    <a class="button button-golden golden-card-button" href="#sauce-enquiry" data-product-target="Chilli Sauce">Enquire About This Sauce</a>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="golden-card reveal">
+                            <div class="golden-card-media">
+                                <img class="golden-card-image" src="Images/sweet chilli.png" alt="Golden Sauces Sweet Chilli Sauce">
+                                <ul class="golden-card-ingredients" aria-label="Sweet Chilli Sauce ingredient notes">
+                                    <li>Chillies</li>
+                                    <li>Garlic</li>
+                                    <li>Sweet glaze</li>
+                                </ul>
+                            </div>
+                            <div class="golden-card-copy">
+                                <div class="golden-card-header">
+                                    <span class="golden-card-kicker">Golden Sauces</span>
+                                    <h3>Sweet Chilli Sauce</h3>
+                                </div>
+                                <p>A sweet and spicy sauce option suitable for dipping, cooking and meal preparation.</p>
+                                <div class="golden-card-footer">
+                                    <span class="golden-size-pill">Size: 5L</span>
+                                    <a class="button button-golden golden-card-button" href="#sauce-enquiry" data-product-target="Sweet Chilli Sauce">Enquire About This Sauce</a>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="golden-card reveal">
+                            <div class="golden-card-media">
+                                <img class="golden-card-image" src="Images/chip dip.png" alt="Golden Sauces Yummy Chip Dip">
+                                <ul class="golden-card-ingredients" aria-label="Yummy Chip Dip ingredient notes">
+                                    <li>Creamy base</li>
+                                    <li>Herbs</li>
+                                    <li>Garlic</li>
+                                </ul>
+                            </div>
+                            <div class="golden-card-copy">
+                                <div class="golden-card-header">
+                                    <span class="golden-card-kicker">Golden Sauces</span>
+                                    <h3>Yummy Chip Dip</h3>
+                                </div>
+                                <p>A creamy chip dip designed for snacks, chips, platters and casual meals.</p>
+                                <div class="golden-card-footer">
+                                    <span class="golden-size-pill">Size: 5L</span>
+                                    <a class="button button-golden golden-card-button" href="#sauce-enquiry" data-product-target="Yummy Chip Dip">Enquire About This Sauce</a>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="golden-card reveal">
+                            <div class="golden-card-media">
+                                <img class="golden-card-image" src="Images/fruit chutney.png" alt="Golden Sauces Fruit Chutney">
+                                <ul class="golden-card-ingredients" aria-label="Fruit Chutney ingredient notes">
+                                    <li>Fruit blend</li>
+                                    <li>Spices</li>
+                                    <li>Tangy finish</li>
+                                </ul>
+                            </div>
+                            <div class="golden-card-copy">
+                                <div class="golden-card-header">
+                                    <span class="golden-card-kicker">Golden Sauces</span>
+                                    <h3>Fruit Chutney</h3>
+                                </div>
+                                <p>A sweet and tangy fruit chutney suitable for meals, sauces, marinades and table use.</p>
+                                <div class="golden-card-footer">
+                                    <span class="golden-size-pill">Size: 5L</span>
+                                    <a class="button button-golden golden-card-button" href="#sauce-enquiry" data-product-target="Fruit Chutney">Enquire About This Sauce</a>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="golden-card reveal">
+                            <div class="golden-card-media">
+                                <img class="golden-card-image" src="Images/peri peri.png" alt="Golden Sauces Peri Peri Sauce">
+                                <ul class="golden-card-ingredients" aria-label="Peri Peri Sauce ingredient notes">
+                                    <li>Peri peri</li>
+                                    <li>Garlic</li>
+                                    <li>Citrus</li>
+                                </ul>
+                            </div>
+                            <div class="golden-card-copy">
+                                <div class="golden-card-header">
+                                    <span class="golden-card-kicker">Golden Sauces</span>
+                                    <h3>Peri Peri Sauce</h3>
+                                </div>
+                                <p>A bold peri peri sauce with a spicy flavour, ideal for chicken, grilling and food service.</p>
+                                <div class="golden-card-footer">
+                                    <span class="golden-size-pill">Size: 5L</span>
+                                    <a class="button button-golden golden-card-button" href="#sauce-enquiry" data-product-target="Peri Peri Sauce">Enquire About This Sauce</a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section golden-feature-section">
+                <div class="container">
+                    <div class="golden-feature-banner reveal">
+                        <div class="golden-feature-image-wrap">
+                            <img class="golden-feature-image" src="Images/sauce1.png" alt="Golden Sauces promotional image">
+                        </div>
+                        <div class="golden-feature-copy">
+                            <p class="eyebrow golden-eyebrow">Featured</p>
+                            <h2>Need Bulk Sauce Pricing?</h2>
+                            <p>Golden Sauces are packed for consistent bulk ordering, making them suitable for restaurants, food service, catering, resale and factory store customers.</p>
+                            <a class="button button-golden" href="#sauce-enquiry">Request Pricing</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section section-muted golden-why-section">
+                <div class="container">
+                    <div class="section-heading reveal">
+                        <p class="eyebrow golden-eyebrow">Why Choose Golden Sauces</p>
+                        <h2>Clear product value built around flavour, consistency and practical supply.</h2>
+                    </div>
+
+                    <div class="golden-why-grid">
+                        <article class="golden-why-card reveal">
+                            <h3>Premium Quality</h3>
+                            <p>Consistent sauces made for reliable everyday use.</p>
+                        </article>
+                        <article class="golden-why-card reveal">
+                            <h3>Wide Flavour Range</h3>
+                            <p>Multiple flavours to suit different meals and customer preferences.</p>
+                        </article>
+                        <article class="golden-why-card reveal">
+                            <h3>Bulk Friendly</h3>
+                            <p>5L containers suitable for food service and resale.</p>
+                        </article>
+                        <article class="golden-why-card reveal">
+                            <h3>Made for Everyone</h3>
+                            <p>Simple, flavourful sauces for homes, kitchens and businesses.</p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="sauce-enquiry">
+                <div class="container enquiry-layout golden-enquiry-layout">
+                    <div class="section-copy reveal">
+                        <p class="eyebrow golden-eyebrow">Enquiry</p>
+                        <h2>Need Sauce Pricing or Bulk Supply?</h2>
+                        <p>Send us your details and our team will get back to you.</p>
+                        <div class="contact-list">
+                            <div>
+                                <span>Brand</span>
+                                <strong>Golden Sauces</strong>
+                            </div>
+                            <div>
+                                <span>Phone</span>
+                                <strong>011 674 1071</strong>
+                            </div>
+                            <div>
+                                <span>Email</span>
+                                <strong>Reception@tjsnacks.co.za</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-card reveal reveal-delay golden-enquiry-card">
+                        <form class="contact-form" id="contactForm">
+                            <div class="form-row two-inputs">
+                                <div>
+                                    <label for="name">Name</label>
+                                    <input id="name" name="name" type="text" placeholder="Your name" required>
+                                </div>
+                                <div>
+                                    <label for="company">Company Name</label>
+                                    <input id="company" name="company" type="text" placeholder="Your company name">
+                                </div>
+                            </div>
+                            <div class="form-row two-inputs">
+                                <div>
+                                    <label for="email">Email</label>
+                                    <input id="email" name="email" type="email" placeholder="you@example.com" required>
+                                </div>
+                                <div>
+                                    <label for="phone">Phone</label>
+                                    <input id="phone" name="phone" type="tel" placeholder="Your phone number">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <label for="product-interest">Sauce Interest</label>
+                                <div class="select-field select-field-left">
+                                    <select id="product-interest" name="product-interest" class="form-select">
+                                        <option>Tomato Sauce</option>
+                                        <option>Mustard Sauce</option>
+                                        <option>BBQ Sauce</option>
+                                        <option>Chilli Sauce</option>
+                                        <option>Sweet Chilli Sauce</option>
+                                        <option>Yummy Chip Dip</option>
+                                        <option>Fruit Chutney</option>
+                                        <option>Peri Peri Sauce</option>
+                                        <option selected>General Sauce Enquiry</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" rows="5" placeholder="Tell us what products or quantities you need" required></textarea>
+                            </div>
+                            <button class="button button-golden button-full" type="submit">Submit</button>
+                            <p class="form-success" id="formSuccess" aria-live="polite"></p>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer golden-footer">
+            <div class="container golden-footer-grid">
+                <section class="golden-footer-brand-block">
+                    <div class="golden-footer-brand">
+                        <span class="golden-footer-mark">
+                            <img class="golden-footer-logo" src="Images/golden sauce logo.png" alt="Golden Sauces logo">
+                        </span>
+                        <div class="golden-footer-brand-copy">
+                            <p class="golden-footer-label">Golden Sauces</p>
+                            <h3>A sauce for everyone</h3>
+                            <p>Premium sauces for homes, kitchens, restaurants and bulk customers.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="golden-footer-card">
+                    <h4>Contact</h4>
+                    <div class="footer-links golden-footer-links">
+                        <a href="tel:0116741071">011 674 1071</a>
+                        <a href="mailto:Reception@tjsnacks.co.za">Reception@tjsnacks.co.za</a>
+                        <span>9 Amanda Avenue, Lea Glen/ Florida, 1710</span>
+                    </div>
+                </section>
+            </div>
+
+            <div class="container golden-footer-bottom">
+                <p>© 2026 Golden Sauces. All Rights Reserved.</p>
+                <a href="#sauce-enquiry">Request Pricing</a>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
