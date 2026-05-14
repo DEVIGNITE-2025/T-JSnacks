@@ -893,21 +893,19 @@ textarea {
 }
 
 .tj-page .tj-hero {
-    position: relative;
-}
-
-.tj-page .tj-hero::before {
-    content: "";
-    position: absolute;
-    inset: 0;
     background:
-        linear-gradient(115deg, rgba(16, 43, 78, 0.96) 0%, rgba(16, 43, 78, 0.82) 42%, rgba(16, 43, 78, 0.18) 100%),
-        url('Images/Snacks.png') right center / cover no-repeat;
+    linear-gradient(90deg, rgba(16, 43, 78, 0.9) 0%, rgba(16, 43, 78, 0.5) 50%, rgba(16, 43, 78, 0.9) 100%),
+        url('Images/Snacksforhero.png') center center / cover no-repeat;
 }
 
-.tj-page .tj-hero .container {
-    position: relative;
-    z-index: 1;
+.tj-page .tj-hero .hero-layout {
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    text-align: center;
+}
+
+.tj-page .tj-hero .hero-copy {
+    justify-items: center;
 }
 
 .tj-page .tj-hero .hero-copy h1,
@@ -924,6 +922,14 @@ textarea {
 .tj-page .tj-hero .lead {
     max-width: 60ch;
     color: rgba(255, 255, 255, 0.88);
+}
+
+.tj-page .tj-hero .hero-actions {
+    justify-content: center;
+}
+
+.tj-page .tj-hero .hero-summary {
+    justify-content: center;
 }
 
 .tj-page .hero-summary div,
