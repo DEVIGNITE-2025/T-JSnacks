@@ -16,7 +16,7 @@
     --radius-md: 16px;
     --radius-sm: 10px;
     --container: min(1280px, calc(100% - 48px));
-    --space-section: clamp(72px, 9vw, 112px);
+    --space-section: clamp(48px, 6vw, 72px);
     --space-stack: clamp(18px, 2vw, 26px);
     --transition: 180ms ease;
 }
@@ -647,9 +647,8 @@ textarea {
 
 .catalog-image {
     width: 100%;
-    min-height: 100%;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
+    height: auto;
+    display: block;
 }
 
 .catalog-copy {
@@ -799,10 +798,10 @@ textarea {
 }
 
 .tj-brand-mark {
-    width: 62px;
-    height: 62px;
+    width: 100px;
+    height: 100px;
     padding: 0;
-    overflow: hidden;
+    overflow: visible;
     display: block;
     background: transparent;
     box-shadow: none;
@@ -893,9 +892,12 @@ textarea {
 }
 
 .tj-page .tj-hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
     background:
     linear-gradient(90deg, rgba(16, 43, 78, 0.9) 0%, rgba(16, 43, 78, 0.5) 50%, rgba(16, 43, 78, 0.9) 100%),
-        url('Images/Snacksforhero.png') center center / cover no-repeat;
+        url('Images/hero\ section\ image\ snack.png') center center / cover no-repeat;
 }
 
 .tj-page .tj-hero .hero-layout {
@@ -1030,7 +1032,7 @@ textarea {
 .range-card-media {
     display: grid;
     place-items: center;
-    padding: 18px;
+    overflow: hidden;
     background: linear-gradient(180deg, rgba(46, 128, 215, 0.06), rgba(224, 180, 70, 0.08));
     border-bottom: 1px solid rgba(23, 54, 93, 0.08);
 }
@@ -1038,7 +1040,9 @@ textarea {
 .range-card-image {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
+    object-position: center;
+    display: block;
 }
 
 .range-card-copy {
@@ -1123,6 +1127,7 @@ textarea {
 
 .tj-page .catalog-image {
     object-fit: contain;
+    object-position: center;
     background: linear-gradient(180deg, #ffffff, #f4f7fc);
 }
 
@@ -1165,8 +1170,8 @@ textarea {
 }
 
 .tj-footer-logo-wrap {
-    width: 96px;
-    height: 96px;
+    width: 130px;
+    height: 130px;
     display: block;
 }
 
@@ -1260,9 +1265,9 @@ textarea {
 }
 
 .golden-brand-mark {
-    width: 78px;
-    height: 78px;
-    overflow: hidden;
+    width: 124px;
+    height: 124px;
+    overflow: visible;
     padding: 0;
     background: transparent;
     box-shadow: none;
@@ -1327,7 +1332,7 @@ textarea {
 
 .golden-hero {
     position: relative;
-    min-height: clamp(500px, 65vw, 680px);
+    min-height: 100vh;
     display: grid;
     align-items: end;
     padding: clamp(104px, 12vw, 152px) 0 clamp(64px, 8vw, 96px);
@@ -1402,6 +1407,13 @@ textarea {
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0));
 }
 
+.golden-intro-logo {
+    width: 220px;
+    height: auto;
+    display: block;
+    margin-bottom: 16px;
+}
+
 .golden-intro-layout {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(340px, 0.98fr);
@@ -1415,6 +1427,10 @@ textarea {
 .sauces-page .golden-why-card p,
 .sauces-page .golden-feature-copy p {
     color: #58665a;
+}
+
+.golden-feature-copy p {
+    color: rgba(255, 255, 255, 0.75);
 }
 
 .golden-highlights {
@@ -1622,17 +1638,14 @@ textarea {
     display: grid;
     place-items: center;
     overflow: hidden;
-    padding: 18px;
-    border-radius: 22px;
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(203, 162, 65, 0.18);
 }
 
 .golden-feature-image {
     width: 100%;
+    height: auto;
     display: block;
-    aspect-ratio: 4 / 3;
     object-fit: contain;
+    border-radius: 18px;
 }
 
 .golden-feature-copy {
@@ -1721,7 +1734,7 @@ textarea {
 }
 
 .footer.golden-footer {
-    background: #072915;
+    background: linear-gradient(90deg, #1a5c32 0%, #072915 60%);
     border-top: 1px solid rgba(203, 162, 65, 0.14);
 }
 
@@ -1732,8 +1745,8 @@ textarea {
 }
 
 .golden-footer-mark {
-    width: 88px;
-    height: 88px;
+    width: 130px;
+    height: 130px;
     display: grid;
     place-items: center;
     overflow: hidden;

@@ -71,7 +71,12 @@ if (currentPage) {
 }
 
 if (currentPage === 'home' && sections.length > 0 && navLinks.length > 0) {
+    let scrollLockTimer = null;
+    let lockedSection = null;
+
     const setActiveLink = (sectionId) => {
+        if (lockedSection !== null) return;
+
         navLinks.forEach((link) => {
             const isMatch = link.getAttribute('href') === `index.html#${sectionId}` || (sectionId === 'top' && link.getAttribute('href') === 'index.html#top');
             link.classList.toggle('is-active', isMatch);
@@ -81,6 +86,28 @@ if (currentPage === 'home' && sections.length > 0 && navLinks.length > 0) {
             navParent.classList.remove('is-active');
         }
     };
+
+    navLinks.forEach((link) => {
+        link.addEventListener('click', () => {
+            const href = link.getAttribute('href');
+            const hashMatch = href && href.match(/#(.+)$/);
+            if (!hashMatch) return;
+
+            const targetSection = hashMatch[1];
+            lockedSection = targetSection;
+
+            navLinks.forEach((l) => {
+                const isMatch = l.getAttribute('href') === href;
+                l.classList.toggle('is-active', isMatch);
+            });
+            if (navParent) navParent.classList.remove('is-active');
+
+            clearTimeout(scrollLockTimer);
+            scrollLockTimer = setTimeout(() => {
+                lockedSection = null;
+            }, 1200);
+        });
+    });
 
     const sectionObserver = new IntersectionObserver(
         (entries) => {
